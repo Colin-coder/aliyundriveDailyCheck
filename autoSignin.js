@@ -2,7 +2,7 @@
 cron "0 9 * * *" autoSignin.js, tag=阿里云盘签到
 */
 
-const axios = require('axios')
+var axios = require('axios')
 const { initInstance, getEnv, updateCkEnv } = require('./qlApi.js')
 const notify = require('./sendNotify')
 
