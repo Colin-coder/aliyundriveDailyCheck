@@ -2,9 +2,9 @@
 cron "0 9 * * *" autoSignin.js, tag=阿里云盘签到
 */
 
-import axios from 'axios'
-import { initInstance, getEnv, updateCkEnv } from './qlApi.js'
-import { sendNotify } from './sendNotify'
+const axios = require('axios')
+const { initInstance, getEnv, updateCkEnv } = require('./qlApi.js')
+const notify = require('./sendNotify')
 
 const updateAccesssTokenURL = 'https://auth.aliyundrive.com/v2/account/token'
 const signinURL =
@@ -203,5 +203,5 @@ async function getRefreshToken() {
     }
     index++
   }
-  await sendNotify(`阿里云盘签到`, message.join('\n'))
+  await notify.sendNotify(`阿里云盘签到`, message.join('\n'))
 })()
